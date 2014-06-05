@@ -50,7 +50,7 @@ ap <- matrix(as.numeric(ap), nrow(M))
 curviture <- matrix(0, nrow(M), ncol(M))
 curviture[5,3] <- 0.2
 
-boxsize <- c(0, rep(0.085, 4))
+boxsize <- c(0, rep(0.09, 4))
 
 dag <- plotmat(M
 	,curve = curviture
@@ -83,30 +83,29 @@ M[[2,1]] <- ""
 M[[3,1]] <- ""
 M[[2,4]] <- ""
 M[[3,5]] <- ""
-M[[2,3]] <- ""
 M[[3,2]] <- ""
 
 col <- matrix(0, 5, 5)
 col[] <- "blue"
-col[2,3] <- col[3,2] <- "black"
+col[2,3] <- col[3,2] <- "blue"
 
 width <- col
 width[width == "blue"] <- 2
-width[width == "black"] <- 2
+width[width == "blue"] <- 2
 width[width == "red"] <- 1
 
 cur <- col
-cur[cur == "black"] <- 0.1
+cur[cur == "blue"] <- 0.1
 cur[cur != 0.1] <- 0
 cur <- matrix(as.numeric(cur), 5, 5)
 
 at <- col
-at[at == "black"] <- "circle"
+at[at == "blue"] <- "triangle"
 at[at != "circle"] <- "triangle"
 
 
 ap <- col
-ap[ap == "black"] <- 0.5
+ap[ap == "blue"] <- 0.5
 ap[ap != 0.5] <- 0.6
 ap <- matrix(as.numeric(ap), 5, 5)
 
@@ -116,7 +115,7 @@ dag <- plotmat(M
 	,curve = 0
 	,pos =c(1,2,2)
 	,name = c("Confounders", "Trait A", "Trait B", expression(Z[A]), expression(Z[B]), expression(G[A]), expression(G[P]), expression(G[B]))
-	,box.size = 0.085
+	,box.size = 0.09
 	,arr.pos = t(ap)
 	,lwd = 1
 	,box.lwd = 2
